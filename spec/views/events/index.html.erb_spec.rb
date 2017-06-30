@@ -22,8 +22,7 @@ RSpec.describe "events/index", type: :view do
                           venue: Venue.new, category: Category.new)
     assign(:events, [event])
     render
-    expect(rendered).to have_css(".form-control", match(placeholder="Search for events, shows, courses..."))
+    expect(rendered).to have_css("input[name='search']", match(placeholder="Search for events, shows, courses..."))
   end
-
 
 end

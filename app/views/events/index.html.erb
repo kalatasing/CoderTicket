@@ -1,9 +1,14 @@
 <div class='events-header' style='background-image: url(<%= header_background_image_url %>)'>
   <div class="container">
     <h2> Discover upcoming events </h2>
-    <form>
-      <input type="text" class="form-control" name="search" placeholder="Search for events, shows, courses...">
-    </form>
+
+    <%= form_tag nil, method: 'get' do %>
+        <div class='form-inline'>
+        <%= text_field_tag 'search', nil, placeholder: 'Enter event name here for searching' %>
+        <%= submit_tag 'Search', class: 'btn btn-secondary' %>
+        </div>
+    <% end %>
+
   </div>
 </div>
 <div class="container-fluid events-list">

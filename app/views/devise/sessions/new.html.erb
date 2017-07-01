@@ -1,0 +1,29 @@
+<div class='events-header' style='background-image: url(<%= header_background_image_url %>)'>
+  <div class="container">
+    <h2> Discover upcoming events </h2>
+
+    <%= form_tag nil, method: 'get' do %>
+        <div class='form-inline'>
+          <%= text_field_tag 'search', nil, placeholder: 'Enter event name here for searching' %>
+          <%= submit_tag 'Search', class: 'btn btn-secondary' %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+<div class="container-fluid events-list">
+  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :email, required: false, autofocus: true %>
+        <%= f.input :password, required: false %>
+        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Log in" %>
+      </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
+</div>

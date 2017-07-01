@@ -10,5 +10,9 @@ class Event < ActiveRecord::Base
     Event.where("starts_at > ?", Time.now)
   end
 
+  belongs_to :user
+
+  has_many :tickets
+  has_many :ticket_types
 
 end

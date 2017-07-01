@@ -1,0 +1,31 @@
+<div class='events-header' style='background-image: url(<%= header_background_image_url %>)'>
+  <div class="container">
+    <h2> Discover upcoming events </h2>
+
+    <%= form_tag nil, method: 'get' do %>
+        <div class='form-inline'>
+          <%= text_field_tag 'search', nil, placeholder: 'Enter event name here for searching' %>
+          <%= submit_tag 'Search', class: 'btn btn-secondary' %>
+        </div>
+    <% end %>
+
+  </div>
+</div>
+<div class="container-fluid events-list">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+        <%= f.input :password_confirmation, required: true %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Sign up" %>
+      </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
+</div>

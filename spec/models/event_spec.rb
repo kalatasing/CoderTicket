@@ -27,7 +27,5 @@ RSpec.describe Event, type: :model do
       expect(Event.upcoming).to match_array([a,c])
     end
 
-
   end
-
 end

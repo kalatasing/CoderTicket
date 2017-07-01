@@ -9,7 +9,7 @@ RSpec.describe "events/index", type: :view do
   end
 
   it "Display an event title" do
-    event = Event.create!(name: "Michael Jackson", starts_at: 2.days.ago, ends_at: 1.day.ago, extended_html_description: " a past event",
+    event = Event.create!(name: "Michael Jackson", starts_at: 2.days.from_now, ends_at: 3.day.from_now, extended_html_description: " a past event",
                           venue: Venue.new, category: Category.new)
     assign(:events, [event])
     render
@@ -36,6 +36,5 @@ RSpec.describe "events/index", type: :view do
     render
     expect(rendered).to have_css(".container-fluid events-list", count: 0)
   end
-
 
 end

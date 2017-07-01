@@ -25,8 +25,4 @@ RSpec.describe EventsController, type: :controller do
       expect(assigns(:events)).to match_array([@a, @b])
     end
   end
-
-
-
-
 end

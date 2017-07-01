@@ -9,13 +9,14 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = Event.find(params[:id])
+    @event = Event.find_by_id(params[:id])
+    redirect_to root_path if @event.nil?
   end
 
   def search_event
     @events = Event
                  .where('lower(name) like ? OR lower(extended_html_description) like ?', "%#{params[:search].downcase}%","%#{params[:search].downcase}%")
-                 .where("starts_at > ?", Time.now)
+                 .where("starts_at >= ?", Time.now)
   end
 
 end

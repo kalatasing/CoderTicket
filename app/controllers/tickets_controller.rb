@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
       redirect_to events_path
     else
       flash[:error] = "Not enough ticket available"
+      redirect_to :back
     end
   end
 

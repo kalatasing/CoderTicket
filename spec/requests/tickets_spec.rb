@@ -19,6 +19,21 @@ RSpec.describe "Tickets", type: :request do
       get new_event_ticket_path(event_id: @e.id)
       expect(response).to have_http_status(200)
     end
-  end
 
+=begin
+
+    it "Return tickets create successful" do
+      type = @e.ticket_types.create(max_quantity: 1)
+      type.save(validate: false)
+      params = {event_id: @e.id, ticket_type_id: type.id, quantity: 1}
+
+      assign(:event)
+      post event_tickets_path, params
+
+      expect(response).to have_http_status(200)
+    end
+
+=end
+
+  end
 end

@@ -22,4 +22,15 @@ RSpec.describe "tickets/new", type: :view do
     expect(rendered).to have_css('button', text: "Buy")
   end
 
+
+  it "Return successful message" do
+    pending "Not yet implement"
+  end
+
+  it "Return error message wheren there's not enough available ticket" do
+    pending "Not yet implement"
+  end
+
+
+
 end

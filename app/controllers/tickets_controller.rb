@@ -24,7 +24,7 @@ class TicketsController < ApplicationController
     types.each do |i|
       quantity = "quantity_for_#{i.id}".intern
       return Ticket.ticket_validate(event,i.id,params[quantity].to_i)
-  end
+    end
   end
 
   def process_tickets

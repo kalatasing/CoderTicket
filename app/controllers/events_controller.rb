@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     if params[:search]
       @events = search_event
     else
-      @events = Event.all
+      @events = Event.upcoming
     end
 
   end

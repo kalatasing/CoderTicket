@@ -57,7 +57,6 @@ ActiveRecord::Schema.define(version: 20170701082944) do
     t.integer  "event_id"
     t.integer  "ticket_type_id"
     t.integer  "venue_id"
-    t.boolean  "public"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

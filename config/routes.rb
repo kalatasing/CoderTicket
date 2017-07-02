@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root 'events#index'
 
   get 'upcoming' => 'events#index'
+  post 'events/new' => 'events#create'
 
   resources :events do
     resources :tickets

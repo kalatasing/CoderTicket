@@ -1,0 +1,56 @@
+
+<div class="container">
+  <%= form_for(:event, :html => {class: "form" }, url: events_new_path) do |f|%>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+
+  <div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Name</label>
+    <div class="col-10">
+      <%= f.text_field :name, class: "form-control input-lg", placeholder: "Enter your event name" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="example-text-input" class="col-2 col-form-label">Image</label>
+    <div class="col-10">
+      <%= f.text_field :hero_image_url, class: "form-control input-lg", placeholder: "Enter your image url" %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="exampleTextarea">Description</label>
+    <%= f.text_area :extended_html_description, class: "form-control input-lg", placeholder: "Enter your event description" %>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-10">
+      <%= f.collection_select :category_id, Category.order(:id),:id,:name, include_blank: false, class: "form-control" %>
+      <%= f.collection_select :venue_id, Venue.order(:id),:id,:name, include_blank: false, class: "form-control" %>
+      <%= f.collection_select :region_id, Region.order(:id),:id,:name, include_blank: false, class: "form-control" %>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Start At</label>
+    <div class="col-10">
+      <%= f.datetime_field("starts_at")%>
+    </div>
+  </div>
+
+
+  <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">End At</label>
+    <div class="col-10">
+      <%= f.datetime_field("ends_at")%>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <%= f.submit 'Create Event', class: "btn btn-lg btn-primary btn-block signup-btn" %>
+    <%= f.submit 'Public', class: "btn btn-lg btn-primary btn-block signup-btn" %>
+  </div>
+<% end %>
+
+</div>

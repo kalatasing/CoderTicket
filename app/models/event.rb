@@ -1,6 +1,9 @@
 class Event < ActiveRecord::Base
+  belongs_to :user
   belongs_to :venue
   belongs_to :category
+
+  has_many :tickets
   has_many :ticket_types
 
   validates_presence_of :extended_html_description, :venue, :category, :starts_at
@@ -9,10 +12,5 @@ class Event < ActiveRecord::Base
   def self.upcoming
     Event.where("starts_at > ?", Time.now)
   end
-
-  belongs_to :user
-
-  has_many :tickets
-  has_many :ticket_types
 
 end

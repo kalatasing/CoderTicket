@@ -27,21 +27,25 @@
         <th> Ticket Type </th>
         <th> Unit Price </th>
         <th> Quantity </th>
-      
+          <%= form_tag event_tickets_path, method: 'post' do %>
+            <%= hidden_field_tag 'event_id', @event.id %>
+            <%= hidden_field_tag 'user_id', current_user.id %>
         <% @event.ticket_types.each do |type| %>
         <tr>
           <td> <%= type.name %> </td>
           <td> <%= number_to_currency(type.price, unit: 'VND ', precision: 0) %> </td>
-          <td> <%= select_tag('quantity', options_for_select(0..10)) %></td> 
+                  <td> <%= select_tag "quantity_for_#{type.id}", options_for_select(0..10) %></td>
         </tr>
         <% end %> 
+
       </table>
-    </div>
   </div>
   <div class="row">
     <div class="col-md-2 col-md-offset-5">
-      <button class="btn btn-success btn-lg btn-block"> Buy </button>
+          <button class="btn btn-success"> Buy </button>
     </div>
-  <div>
+      </div>
+        <% end %>
+  </div>
 </div>  
 
